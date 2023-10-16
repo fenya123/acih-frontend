@@ -1,1 +1,7 @@
+# angular cache
+.angular
+
+# build output
+dist
+
 node_modules
