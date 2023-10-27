@@ -1,0 +1,107 @@
+{
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": [
+        "eslint:all",
+        "plugin:@angular-eslint/all",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:@typescript-eslint/all"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": { "project": "./tsconfig.json" },
+      "rules": {
+        "@typescript-eslint/brace-style": ["off"],
+        "@typescript-eslint/comma-dangle": ["off"],
+        "@typescript-eslint/indent": ["error", 2],
+        "@typescript-eslint/no-extraneous-class": ["off"],
+        "@typescript-eslint/object-curly-spacing": ["off"],
+        "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
+        "array-bracket-newline": ["error", "consistent"],
+        "array-element-newline": ["error", "consistent"],
+        "arrow-parens": ["error", "as-needed"],
+        "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+        "comma-dangle": ["error", "always-multiline"],
+        "complexity": ["error", 7],
+        "curly": ["error", "all"],
+        "dot-location": ["error", "property"],
+        "func-names": ["error", "as-needed", { "generators": "as-needed" }],
+        "func-style": ["error", "declaration"],
+        "function-call-argument-newline": ["error", "consistent"],
+        "grouped-accessor-pairs": ["error", "getBeforeSet"],
+        "id-match": ["off"], // difficult to use with angular
+        "id-length": ["error", { "exceptions": [ "i", "j", "k" ] }],
+        "indent": ["error", 2],
+        "max-classes-per-file": ["off"],
+        "max-len": ["error", 120],
+        "max-lines-per-function": ["error", { "max": 30, "skipBlankLines": true, "skipComments": true }],
+        "max-nested-callbacks": ["error", 4],
+        "max-params": ["error", 6],
+        "max-statements": ["error", 15],
+        "multiline-comment-style": ["error", "bare-block"],
+        "multiline-ternary": ["error", "always-multiline"],
+        "new-cap": ["error", {
+          "capIsNewExceptions": [
+            "Component",
+            "NgModule"
+          ]
+        }],
+        "newline-per-chained-call": ["off"],
+        "no-bitwise": ["error", { "int32Hint": false }],
+        "no-cond-assign": ["error", "always"],
+        "no-continue": ["off"],
+        "no-duplicate-imports": ["error", { "includeExports": true }],
+        "no-else-return": ["error", { "allowElseIf": false }],
+        "no-empty": ["error", { "allowEmptyCatch": false }],
+        "no-eval": ["error", { "allowIndirect": false }],
+        "no-extra-boolean-cast": ["error", { "enforceForLogicalOperands": true }],
+        "no-fallthrough": ["error", { "allowEmptyCase": false }],
+        "no-inline-comments": ["off"],
+        "no-inner-declarations": ["error", "both"],
+        "no-irregular-whitespace": ["error", {
+          "skipComments": false,
+          "skipJSXText": false,
+          "skipRegExps": false,
+          "skipStrings": false,
+          "skipTemplates": false
+        }],
+        "no-magic-numbers": ["error", {
+          "ignoreArrayIndexes": true, "ignoreDefaultValues": true, "ignoreClassFieldInitialValues": true
+        }],
+        "no-param-reassign": ["error", { "props": true }],
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "no-promise-executor-return": ["error", { "allowVoid": true }],
+        "no-restricted-syntax": ["error", {
+          "selector": "IfStatement[alternate]",
+          "message": "No `else` statements allowed"
+        }],
+        "no-return-assign": ["error", "always"],
+        "no-sequences": ["error", { "allowInParentheses": false }],
+        "no-shadow": ["off"],
+        "no-ternary": ["off"],
+        "no-unsafe-optional-chaining": ["error", { "disallowArithmeticOperators": true }],
+        "no-unsafe-negation": ["error", { "enforceForOrderingRelations": true }],
+        "no-useless-computed-key": ["error", { "enforceForClassMembers": true }],
+        "object-property-newline": ["off"],
+        "one-var": ["error", "consecutive"],
+        "operator-linebreak": ["error", "before"],
+        "padded-blocks": ["error", "never"],
+        "prefer-regex-literals": ["error", { "disallowRedundantWrapping": true }],
+        "quote-props": ["error", "consistent-as-needed"],
+        "sort-imports": ["error", { "allowSeparatedGroups": true, "ignoreCase": true, "ignoreDeclarationSort": true }],
+        "sort-keys": ["error", "asc", {"caseSensitive": false, "natural": true, "minKeys": 2}],
+        "use-isnan": ["error", { "enforceForSwitchCase": true, "enforceForIndexOf": true }]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": [
+        "plugin:@angular-eslint/template/all"
+      ],
+      "parser": "@angular-eslint/template-parser",
+      "rules": {
+        "@angular-eslint/template/i18n": ["off"]
+      }
+    }
+  ]
+}
