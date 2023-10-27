@@ -1,14 +1,39 @@
 {
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictTemplates": true
+  },
   "compilerOptions": {
+    "allowJs": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
     "declaration": false,
     "downlevelIteration": true,
+    "exactOptionalPropertyTypes": true,
     "experimentalDecorators": true,
     "importHelpers": true,
     "lib": ["ES2022", "dom"],
     "module": "ES2022",
     "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "outDir": "./dist/out-tsc",
+    "removeComments": true,
     "sourceMap": true,
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false, // difficult to use angular with this rule enabled
     "target": "ES2022",
+    "useUnknownInCatchVariables": true
   }
 }
