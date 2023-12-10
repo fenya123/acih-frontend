@@ -4,6 +4,9 @@
       "files": ["*.ts"],
       "extends": [
         "eslint:all",
+        "plugin:perfectionist/recommended-natural",
+        "plugin:@angular-eslint/all",
+        "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:@typescript-eslint/all"
       ],
       "parser": "@typescript-eslint/parser",
@@ -46,6 +49,9 @@
         }],
         "newline-per-chained-call": ["off"],
         "no-bitwise": ["error", { "int32Hint": false }],
+        "no-comments/disallowComments": [
+          "error", { "allow": [] }
+        ],
         "no-cond-assign": ["error", "always"],
         "no-continue": ["off"],
         "no-duplicate-imports": ["error", { "includeExports": true }],
@@ -90,6 +96,18 @@
         "sort-keys": ["error", "asc", {"caseSensitive": false, "natural": true, "minKeys": 2}],
         "use-isnan": ["error", { "enforceForSwitchCase": true, "enforceForIndexOf": true }]
       }
+    },
+    {
+      "files": ["*.html"],
+      "extends": [
+        "plugin:perfectionist/recommended-natural",
+        "plugin:@angular-eslint/template/all"
+      ],
+      "parser": "@angular-eslint/template-parser",
+      "rules": {
+        "@angular-eslint/template/i18n": ["off"]
+      }
     }
-  ]
+  ],
+  "plugins": [ "no-comments" ]
 }
