@@ -1,0 +1,9 @@
+services:
+  app-build: &app-build
+    build:
+      context: ../../..  # path from the current file to the project root dir
+      dockerfile: envs/ci/lint/Dockerfile  # path from the project root dir to the Dockerfile
+
+  lint:
+    <<: *app-build
+    entrypoint: npm run lint
