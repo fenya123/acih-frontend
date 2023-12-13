@@ -23,7 +23,7 @@
               "outputPath": "dist/dev",
               "polyfills": ["zone.js"],
               "sourceMap": true,
-              "styles": ["src/styles.scss"],
+              "styles": ["src/styles/index.scss"],
               "tsConfig": "tsconfig.json",
               "vendorChunk": true
             }
