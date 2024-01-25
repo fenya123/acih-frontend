@@ -1,7 +1,10 @@
 # angular cache
 .angular
 
+.idea
 # build output
 dist
 
 node_modules
+*.css
+*.css.map

@@ -1,0 +1,83 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  height: 100vh;
+}
+
+.login_left_bar {
+  position: relative;
+  display: inline-block;
+  &_img {
+    filter: brightness(0.5);
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 1);
+  }
+}
+
+.login_text_centered {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: var(--accent);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  span {
+    width: max-content;
+  }
+}
+
+.login_form {
+  display: flex;
+  gap: 72px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+
+  &_input {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    &_invalid {
+      display: flex;
+      justify-content: center;
+      margin-top: -15px ;
+      color: var(--danger);
+    }
+  }
+
+  input[type="password"] ~ span:not(.login_form_input_invalid) {
+    margin-bottom:  0;
+  }
+
+
+  &_underInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    &_submit_button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    &_text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &_signUp {
+        color: var(--accent);
+        cursor: pointer;
+      }
+    }
+  }
+}
