@@ -9,6 +9,8 @@
 
 body, html {
   min-height: 100%;
+  background: var(--background-primary);
+  color: var(--text-regular);
 }
 
 button, input, label, select, textarea {
