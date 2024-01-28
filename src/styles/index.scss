@@ -6,3 +6,24 @@
 @import "_colors";
 
 
+
+.achiButton {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 40px;
+  border: 1px solid var(--accent);
+  border-radius: 30px;
+  cursor: pointer;
+}
+.achiButton_Accent {
+  background: var(--accent);
+  color: var(--background-primary);
+}
+.achiButton:hover {
+  color: var(--accent);
+  background: var(--background-primary);
+}
