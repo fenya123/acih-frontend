@@ -27,3 +27,26 @@
   color: var(--accent);
   background: var(--background-primary);
 }
+
+
+.achiInput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 300px;
+  height: 40px;
+  background: inherit;
+  color: var(--text-regular);
+  border: inherit;
+  border-bottom: 1px solid var(--Background-secondary);
+  outline:none;
+}
+
+.achiInput:focus {
+  border-bottom: 1px solid var(--accent);
+}
+
+.achiInput_bad {
+  border-bottom: 1px solid var(--danger);
+  color: var(--danger);
+}
