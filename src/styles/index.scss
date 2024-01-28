@@ -18,14 +18,14 @@
   border: 1px solid var(--accent);
   border-radius: 30px;
   cursor: pointer;
-}
-.achiButton_Accent {
-  background: var(--accent);
-  color: var(--background-primary);
-}
-.achiButton:hover {
-  color: var(--accent);
-  background: var(--background-primary);
+  &_Accent {
+    background: var(--accent);
+    color: var(--background-primary);
+  }
+  &:hover {
+    color: var(--accent);
+    background: var(--background-primary);
+  }
 }
 
 
@@ -40,13 +40,11 @@
   border: inherit;
   border-bottom: 1px solid var(--Background-secondary);
   outline:none;
-}
-
-.achiInput:focus {
-  border-bottom: 1px solid var(--accent);
-}
-
-.achiInput_bad {
-  border-bottom: 1px solid var(--danger);
-  color: var(--danger);
+  &:focus{
+    border-bottom: 1px solid var(--accent);
+  }
+  &_bad{
+    border-bottom: 1px solid var(--danger);
+    color: var(--danger);
+  }
 }
