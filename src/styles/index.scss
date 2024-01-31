@@ -38,7 +38,7 @@
   background: inherit;
   color: var(--text-regular);
   border: inherit;
-  border-bottom: 1px solid var(--Background-secondary);
+  border-bottom: 1px solid var(--border);
   outline:none;
   &:focus{
     border-bottom: 1px solid var(--accent);
