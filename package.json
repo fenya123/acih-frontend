@@ -8,6 +8,7 @@
   "private": true,
   "dependencies": {
     "@angular/core": "16.2.12",
+    "@angular/forms": "16.2.12",
     "@angular/platform-browser": "16.2.12",
     "@angular/platform-browser-dynamic": "16.2.12",
     "@angular/router": "16.2.12",

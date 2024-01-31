@@ -1,0 +1,46 @@
+<div style="position: relative; display: inline-block">
+  <img
+    ngSrc="../../../assets/img/jpg/loginImg.jpg"
+    height="760"
+    width="570"
+    alt="img"
+  />
+  <h1 class="login_text_centered">
+    Spend. Buy. <span> Share with everyone. </span>
+  </h1>
+</div>
+<form [formGroup]="formGroup" class="login_form" (ngSubmit)="submit()">
+  <img ngSrc="assets/img/svg/Logo.svg" height="40" width="100" alt="logo" />
+  <div class="login_form_input">
+    <input
+      [isError]="!formGroup.controls.email.valid"
+      formControlName="email"
+      acihInput
+      placeholder="Your E-Mail"
+    />
+    <span
+      *ngIf="!formGroup.controls.email.valid"
+      class="login_form_input_invalid"
+    >
+      Email is invalide
+    </span>
+    <input
+      [isError]="!formGroup.controls.pass.valid"
+      formControlName="pass"
+      acihInput
+      type="password"
+      placeholder="Your Password"
+    />
+  </div>
+  <span *ngIf="!formGroup.controls.pass.valid" class="login_form_input_invalid">
+    pass is invalide
+  </span>
+  <button (submit)="submit()" acihButton>Sign In!</button>
+  <div class="login_form_submit_button">
+    <label>
+      Still don’t have an account?
+      <span class="login_form_signUp">Sign up</span>
+      now!!</label
+    >
+  </div>
+</form>
