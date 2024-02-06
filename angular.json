@@ -25,7 +25,13 @@
               "sourceMap": true,
               "styles": ["src/styles/index.scss"],
               "tsConfig": "tsconfig.json",
-              "vendorChunk": true
+              "vendorChunk": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
             }
           }
         },
