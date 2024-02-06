@@ -13,29 +13,29 @@
   <img ngSrc="assets/img/svg/Logo.svg" height="40" width="100" alt="logo" />
   <div class="login_form_input">
     <input
-      [isError]="!formGroup.controls.email.valid"
+      [isError]="formGroup.controls.email.touched && !formGroup.controls.email.valid"
       formControlName="email"
       acihInput
       placeholder="Your E-Mail"
     />
     <span
-      *ngIf="!formGroup.controls.email.valid"
+      *ngIf="formGroup.controls.email.touched && !formGroup.controls.email.valid"
       class="login_form_input_invalid"
     >
       Email is invalide
     </span>
     <input
-      [isError]="!formGroup.controls.pass.valid"
+      [isError]="!formGroup.controls.pass.valid && formGroup.controls.pass.touched"
       formControlName="pass"
       acihInput
       type="password"
       placeholder="Your Password"
     />
   </div>
-  <span *ngIf="!formGroup.controls.pass.valid" class="login_form_input_invalid">
+  <span *ngIf="!formGroup.controls.pass.valid && formGroup.controls.pass.touched" class="login_form_input_invalid">
     pass is invalide
   </span>
-  <button (submit)="submit()" acihButton>Sign In!</button>
+  <button type="submit" acihButton>Sign In!</button>
   <div class="login_form_submit_button">
     <label>
       Still don’t have an account?
