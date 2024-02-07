@@ -3,6 +3,7 @@
     "ng": "ng",
     "build": "ng build --configuration=dev",
     "start": "ng serve --configuration=dev",
+    "serve": "ng serve --configuration=server",
     "lint": "ng lint"
   },
   "private": true,
