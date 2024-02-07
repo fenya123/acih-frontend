@@ -35,7 +35,8 @@
   <span *ngIf="!formGroup.controls.pass.valid && formGroup.controls.pass.touched" class="login_form_input_invalid">
     pass is invalide
   </span>
-  <button type="submit" acihButton>Sign In!</button>
+  <button type="submit" [DisableButton]="!formGroup.valid" acihButton>Sign In!</button>
+    <div *ngIf="error.asObservable() | async" class="login_form_input_invalid" > The user was not found </div>
   <div class="login_form_submit_button">
     <label>
       Still don’t have an account?

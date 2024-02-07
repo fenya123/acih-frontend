@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
+import { catchError } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -18,12 +20,19 @@ export class LoginComponent {
     ]),
     pass: new FormControl('', [Validators.required]),
   });
-  loading = false;
+  error = new BehaviorSubject<boolean>(false);
 
   submit() {
-    if (this.formGroup.valid) {
-      this.loginService.login(<string>this.formGroup.controls.email.value, <string>this.formGroup.controls.pass.value);
-    }
+    this.error.next(false);
+    this.loginService
+      .login(<string>this.formGroup.controls.email.value, <string>this.formGroup.controls.pass.value)
+      .pipe(
+        catchError((e) => {
+          this.error.next(true);
+          throw e;
+        }),
+      )
+      .subscribe();
   }
 
   forbiddenNameValidator(nameRe: RegExp): ValidatorFn {

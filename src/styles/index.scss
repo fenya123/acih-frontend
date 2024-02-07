@@ -26,6 +26,11 @@
     color: var(--accent);
     background: var(--background-primary);
   }
+  &_disabled {
+    border: 1px solid var(grey);
+    background: grey;
+    color: var(--text-disabled);
+  }
 }
 
 
