@@ -4,7 +4,7 @@
       "files": ["*.ts"],
       "extends": [
         "eslint:all",
-        "plugin:perfectionist/recommended-natural",
+        // "plugin:perfectionist/recommended-natural",
         "plugin:@angular-eslint/all",
         "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:@typescript-eslint/all"
@@ -12,16 +12,31 @@
       "parser": "@typescript-eslint/parser",
       "parserOptions": { "project": "./tsconfig.json" },
       "rules": {
+        "@angular-eslint/sort-ngmodule-metadata-arrays": ["off"],
+        "@angular-eslint/prefer-standalone-component": ["off"],
         "@typescript-eslint/brace-style": ["off"],
         "@typescript-eslint/comma-dangle": ["off"],
-        "@typescript-eslint/indent": ["error", 2],
+        "@typescript-eslint/consistent-type-imports": ["off"],
+        "@typescript-eslint/consistent-type-assertions": ["error", {"assertionStyle": "angle-bracket"}],
+        "@typescript-eslint/indent": ["off", 2],
+        "@typescript-eslint/member-ordering": ["off"],
         "@typescript-eslint/no-extraneous-class": ["off"],
+        "@typescript-eslint/no-inferrable-types": ["off"],
         "@typescript-eslint/object-curly-spacing": ["off"],
+        "@typescript-eslint/parameter-properties": ["off"],
+        "@typescript-eslint/quotes": ["off", "double"],
+        "@typescript-eslint/space-before-function-paren": ["error", {
+          "anonymous": "always",
+          "named": "never",
+          "asyncArrow": "always"
+        }],
+        "@typescript-eslint/unbound-method": ["off"],
         "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
         "array-bracket-newline": ["error", "consistent"],
         "array-element-newline": ["error", "consistent"],
         "arrow-parens": ["error", "as-needed"],
         "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+        "class-methods-use-this": ["off"],
         "comma-dangle": ["error", "always-multiline"],
         "complexity": ["error", 7],
         "curly": ["error", "all"],
@@ -29,10 +44,11 @@
         "func-names": ["error", "as-needed", { "generators": "as-needed" }],
         "func-style": ["error", "declaration"],
         "function-call-argument-newline": ["error", "consistent"],
+        "function-paren-newline": ["error", "consistent"],
         "grouped-accessor-pairs": ["error", "getBeforeSet"],
         "id-match": ["off"], // difficult to use with angular
         "id-length": ["error", { "exceptions": [ "i", "j", "k" ] }],
-        "indent": ["error", 2],
+        "indent": ["off", 2],
         "max-classes-per-file": ["off"],
         "max-len": ["error", 120],
         "max-lines-per-function": ["error", { "max": 30, "skipBlankLines": true, "skipComments": true }],
@@ -44,6 +60,10 @@
         "new-cap": ["error", {
           "capIsNewExceptions": [
             "Component",
+            "Directive",
+            "HostBinding",
+            "Injectable",
+            "Input",
             "NgModule"
           ]
         }],
@@ -92,19 +112,20 @@
         "padded-blocks": ["error", "never"],
         "prefer-regex-literals": ["error", { "disallowRedundantWrapping": true }],
         "quote-props": ["error", "consistent-as-needed"],
-        "sort-imports": ["error", { "allowSeparatedGroups": true, "ignoreCase": true, "ignoreDeclarationSort": true }],
-        "sort-keys": ["error", "asc", {"caseSensitive": false, "natural": true, "minKeys": 2}],
+        "sort-imports": ["off", { "allowSeparatedGroups": true, "ignoreCase": true, "ignoreDeclarationSort": true }],
+        "sort-keys": ["off", "asc", {"caseSensitive": false, "natural": true, "minKeys": 2}],
         "use-isnan": ["error", { "enforceForSwitchCase": true, "enforceForIndexOf": true }]
       }
     },
     {
       "files": ["*.html"],
       "extends": [
-        "plugin:perfectionist/recommended-natural",
+        // "plugin:perfectionist/recommended-natural",
         "plugin:@angular-eslint/template/all"
       ],
       "parser": "@angular-eslint/template-parser",
       "rules": {
+        "@angular-eslint/template/attributes-order": ["off"],
         "@angular-eslint/template/i18n": ["off"]
       }
     }

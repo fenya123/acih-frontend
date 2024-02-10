@@ -22,7 +22,7 @@
       *ngIf="formGroup.controls.email.touched && !formGroup.controls.email.valid"
       class="login_form_input_invalid"
     >
-      Email is invalide
+      E-mail is invalid
     </span>
     <input
       [isError]="!formGroup.controls.pass.valid && formGroup.controls.pass.touched"
@@ -33,15 +33,14 @@
     />
   </div>
   <span *ngIf="!formGroup.controls.pass.valid && formGroup.controls.pass.touched" class="login_form_input_invalid">
-    pass is invalide
+    Password is required
   </span>
-  <button type="submit" [DisableButton]="!formGroup.valid" acihButton>Sign In!</button>
+  <button type="submit" [disableButton]="!formGroup.valid" acihButton>Sign In!</button>
     <div *ngIf="error.asObservable() | async" class="login_form_input_invalid" > The user was not found </div>
   <div class="login_form_submit_button">
-    <label>
-      Still don’t have an account?
-      <span class="login_form_signUp">Sign up</span>
-      now!!</label
-    >
+    <div>
+      Still don't have an account?
+      <span class="login_form_signUp">Sign up</span> now!!
+    </div>
   </div>
 </form>

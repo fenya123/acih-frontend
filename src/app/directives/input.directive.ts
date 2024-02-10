@@ -5,9 +5,9 @@ import { Directive, HostBinding, Input } from "@angular/core";
 })
 export class InputDirective {
   @HostBinding("class")
-  elementClass = "achiInput";
+  elementClass = "acihInput";
 
-  @HostBinding("class.achiInput_bad")
+  @HostBinding("class.acihInput_bad")
   @Input()
-  isError: boolean = false;
+  isError = false;
 }
