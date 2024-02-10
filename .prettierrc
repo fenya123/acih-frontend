@@ -1,0 +1,13 @@
+{
+  "printWidth": 150,
+  "tabWidth": 2,
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "endOfLine": "auto",
+  "semi": true,
+  "quoteProps": "as-needed",
+  "trailingComma": "all",
+  "singleQuote": false,
+  "bracketSameLine": true,
+  "parser": "angular"
+}
