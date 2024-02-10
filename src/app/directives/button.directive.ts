@@ -5,11 +5,12 @@ import { Directive, HostBinding, Input } from '@angular/core';
 })
 export class ButtonDirective {
   @HostBinding('class')
-  elementClass = 'achiButton achiButton_Accent';
+  public elementClass = 'acihButton acihButton_Accent';
 
-  @Input('DisableButton') isDisabled: boolean;
+  @Input() disableButton: boolean;
+
   @HostBinding('attr.disabled')
-  get disabledAttr() {
-    return this.isDisabled ? '' : null;
+  get disabledAttr(): string | null {
+    return this.disableButton ? '' : null;
   }
 }
