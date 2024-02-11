@@ -6,7 +6,6 @@
 @import "_colors";
 
 
-
 .acihButton {
   box-sizing: border-box;
   display: flex;
@@ -18,14 +17,17 @@
   border: 1px solid var(--accent);
   border-radius: 30px;
   cursor: pointer;
+
   &_Accent {
     background: var(--accent);
     color: var(--background-primary);
   }
+
   &:hover {
     color: var(--accent);
     background: var(--background-primary);
   }
+
   &_disabled {
     border: 1px solid var(grey);
     background: grey;
@@ -44,11 +46,13 @@
   color: var(--text-regular);
   border: inherit;
   border-bottom: 1px solid var(--border);
-  outline:none;
-  &:focus{
+  outline: none;
+
+  &:focus {
     border-bottom: 1px solid var(--accent);
   }
-  &_bad{
+
+  &_bad {
     border-bottom: 1px solid var(--danger);
     color: var(--danger);
   }

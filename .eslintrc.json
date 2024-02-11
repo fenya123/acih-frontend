@@ -7,7 +7,8 @@
         // "plugin:perfectionist/recommended-natural",
         "plugin:@angular-eslint/all",
         "plugin:@angular-eslint/template/process-inline-templates",
-        "plugin:@typescript-eslint/all"
+        "plugin:@typescript-eslint/all",
+        "prettier"
       ],
       "parser": "@typescript-eslint/parser",
       "parserOptions": { "project": "./tsconfig.json" },
@@ -59,6 +60,7 @@
         "multiline-ternary": ["error", "always-multiline"],
         "new-cap": ["error", {
           "capIsNewExceptions": [
+            "Inject",
             "Component",
             "Directive",
             "HostBinding",

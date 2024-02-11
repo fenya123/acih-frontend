@@ -1,44 +1,46 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import { LoginService } from './login.service';
-import { catchError } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
+import { ChangeDetectionStrategy, Component, Inject } from "@angular/core";
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
+import { LoginService } from "./login.service";
+import { catchError } from "rxjs/operators";
+import { BehaviorSubject, of } from "rxjs";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent {
-
-  constructor(private readonly loginService: LoginService) {}
-
-  formGroup = new FormGroup({
-    email: new FormControl('', [
+  public formGroup = new FormGroup({
+    email: new FormControl("", [
       Validators.required,
       this.forbiddenNameValidator(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/gmu),
     ]),
-    pass: new FormControl('', [Validators.required]),
+    pass: new FormControl("", [Validators.required]),
   });
 
-  error = new BehaviorSubject<boolean>(false);
+  private readonly error = new BehaviorSubject<boolean>(false);
 
-  submit(): void {
+  public error$ = this.error.asObservable();
+
+  public constructor(@Inject(LoginService) private readonly loginService: Readonly<LoginService>) {}
+
+  public submit(): void {
     this.error.next(false);
     this.loginService
-      .login(<string> this.formGroup.controls.email!.value, <string> this.formGroup.controls.pass!.value)
+      .login(this.formGroup.controls.email.value ?? "", this.formGroup.controls.pass.value ?? "")
       .pipe(
-        catchError(e => {
+        catchError(err => {
           this.error.next(true);
-          throw e;
+          return of(err);
         }),
       )
       .subscribe();
   }
 
-  forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
-    return (control: AbstractControl<string>): ValidationErrors | null => {
+  private forbiddenNameValidator(nameRe: Readonly<RegExp>): ValidatorFn {
+    // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
+    return (control: Readonly<AbstractControl<string>>): ValidationErrors | null => {
       const forbidden = nameRe.test(control.value);
       return forbidden ? null : { email: control.value };
     };

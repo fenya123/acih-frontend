@@ -1,42 +1,26 @@
-<div style="position: relative; display: inline-block">
-  <img
-    ngSrc="../../../assets/img/jpg/loginImg.jpg"
-    height="760"
-    width="570"
-    alt="img"
-  />
-  <h1 class="login_text_centered">
-    Spend. Buy. <span> Share with everyone. </span>
-  </h1>
+<div class="login_left_bar">
+  <img alt="img" height="760" ngSrc="../../../assets/img/jpg/loginImg.jpg" width="570" />
+  <h1 class="login_text_centered">Spend. Buy. <span> Share with everyone. </span></h1>
 </div>
-<form [formGroup]="formGroup" class="login_form" (ngSubmit)="submit()">
-  <img ngSrc="assets/img/svg/Logo.svg" height="40" width="100" alt="logo" />
+<form (ngSubmit)="submit()" [formGroup]="formGroup" class="login_form">
+  <img alt="logo" height="40" ngSrc="assets/img/svg/Logo.svg" width="100" />
   <div class="login_form_input">
     <input
       [isError]="formGroup.controls.email.touched && !formGroup.controls.email.valid"
-      formControlName="email"
       acihInput
-      placeholder="Your E-Mail"
-    />
-    <span
-      *ngIf="formGroup.controls.email.touched && !formGroup.controls.email.valid"
-      class="login_form_input_invalid"
-    >
-      E-mail is invalid
-    </span>
+      formControlName="email"
+      placeholder="Your E-Mail" />
+    <span *ngIf="formGroup.controls.email.touched && !formGroup.controls.email.valid" class="login_form_input_invalid"> E-mail is invalid </span>
     <input
       [isError]="!formGroup.controls.pass.valid && formGroup.controls.pass.touched"
-      formControlName="pass"
       acihInput
-      type="password"
+      formControlName="pass"
       placeholder="Your Password"
-    />
+      type="password" />
   </div>
-  <span *ngIf="!formGroup.controls.pass.valid && formGroup.controls.pass.touched" class="login_form_input_invalid">
-    Password is required
-  </span>
-  <button type="submit" [disableButton]="!formGroup.valid" acihButton>Sign In!</button>
-    <div *ngIf="error.asObservable() | async" class="login_form_input_invalid" > The user was not found </div>
+  <span *ngIf="!formGroup.controls.pass.valid && formGroup.controls.pass.touched" class="login_form_input_invalid"> Password is required </span>
+  <button [disableButton]="!formGroup.valid" acihButton type="submit">Sign In!</button>
+  <div *ngIf="error$ | async" class="login_form_input_invalid">The user was not found</div>
   <div class="login_form_submit_button">
     <div>
       Still don't have an account?

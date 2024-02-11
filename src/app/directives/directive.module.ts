@@ -8,4 +8,5 @@ import { InputDirective } from "./input.directive";
   imports: [CommonModule],
   exports: [ButtonDirective, InputDirective],
 })
-export class DirectiveModule {}
+export class DirectiveModule {
+}

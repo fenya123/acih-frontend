@@ -10,4 +10,5 @@ import { routes } from "./layout/routes";
   imports: [CommonModule, RouterModule.forRoot(routes), NgOptimizedImage],
   exports: [TopBarComponent],
 })
-export class ModulesModule {}
+export class ModulesModule {
+}

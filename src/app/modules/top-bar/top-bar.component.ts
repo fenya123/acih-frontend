@@ -6,4 +6,5 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
   styleUrls: ["./top-bar.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TopBarComponent {}
+export class TopBarComponent {
+}
