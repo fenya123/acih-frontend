@@ -6,7 +6,7 @@ import { environment } from "../../../environments/environment";
 @Injectable({
   providedIn: "root",
 })
-export class LoginService {
+export class AuthService {
   public constructor(@Inject(HttpClient) private readonly http: Readonly<HttpClient>) {}
 
   public login(email: string, pass: string): Observable<string> {

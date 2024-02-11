@@ -1,0 +1,32 @@
+<form [formGroup]="formGroup" class="registration_form" (ngSubmit)="registry()">
+  <img ngSrc="assets/img/svg/Logo.svg" alt="logoImg" height="40" width="100" priority />
+  <div class="registration_form_inputDiv">
+    <input formControlName="email" acihInput placeholder=" Your E-Mail" />
+    <span
+      *ngIf="formGroup.controls.email.invalid && formGroup.controls.email.touched"
+      class="registration_form_inputDiv_invalid caption">
+      Email is invalid
+    </span>
+    <div formGroupName="pass" class="registration_form_inputDiv_pass">
+      <input type="password" formControlName="mainPass" acihInput placeholder=" Your password" />
+      <input type="password" formControlName="confirmPass" acihInput placeholder=" Confirm password" />
+      <span
+        *ngIf="
+          formGroup.controls.pass.invalid &&
+          (formGroup.controls.pass.controls.mainPass.touched || formGroup.controls.pass.controls.mainPass.dirty) &&
+          (formGroup.controls.pass.controls.confirmPass.touched || formGroup.controls.pass.controls.confirmPass.dirty)
+        "
+        class="registration_form_inputDiv_invalid caption">
+        The password does not match
+      </span>
+    </div>
+    <input formControlName="userName" acihInput placeholder=" Your username" />
+  </div>
+  <div class="registration_form_button">
+    <button type="submit" acihButton>Sign Up!</button>
+    <div class="registration_form_button_underButtonText">
+      Already have an account?
+      <span> Sing in <span class="registration_form_button_underButtonText_SighIn" routerLink="/login">here</span> !</span>
+    </div>
+  </div>
+</form>
