@@ -8,7 +8,11 @@
 
 .login_left_bar {
   position: relative;
-  display: inline-block
+  display: inline-block;
+  &_img {
+    filter: brightness(0.5);
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 1);
+  }
 }
 
 .login_text_centered {
@@ -34,12 +38,10 @@
   align-items: center;
 
   &_input {
-
     &_invalid {
       display: flex;
       justify-content: center;
       color: var(--danger);
-
     }
   }
 
