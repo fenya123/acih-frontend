@@ -24,7 +24,7 @@
     </span>
   </div>
   <div class="login_form_underInput">
-    <button [disableButton]="!formGroup.valid" acihButton type="submit">Sign In!</button>
+    <button [disableButton]="formGroup.invalid" acihButton type="submit">Sign In!</button>
     <div *ngIf="error$ | async" class="login_form_underInput_invalid">The user was not found</div>
     <div class="login_form_underInput_text">
       Still don't have an account?
