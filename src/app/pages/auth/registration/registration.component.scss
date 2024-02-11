@@ -1,0 +1,54 @@
+:host{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registration_form {
+  display: flex;
+  gap: 72px;
+  flex-direction: column;
+  align-items: center;
+
+  &_inputDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    &_invalid {
+      margin-top: -20px;
+      display: flex;
+      justify-content: center;
+      color: var(--danger);
+    }
+
+    &_pass {
+      display: flex;
+      gap: 30px;
+      flex-direction: column;
+    }
+  }
+
+
+&_button {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  &_underButtonText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &_SighIn {
+      text-decoration: underline;
+      cursor: pointer;
+      color: var(--accent);
+    }
+  }
+}
+
+}

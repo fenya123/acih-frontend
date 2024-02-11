@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject } from "@angular/core";
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
-import { LoginService } from "./login.service";
+import { AuthService } from "../auth.service";
 import { catchError } from "rxjs/operators";
 import { BehaviorSubject, of } from "rxjs";
 
@@ -14,7 +14,7 @@ export class LoginComponent {
   public formGroup = new FormGroup({
     email: new FormControl("", [
       Validators.required,
-      this.forbiddenNameValidator(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/gmu),
+      this.forbiddenNameValidator(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/u),
     ]),
     pass: new FormControl("", [Validators.required]),
   });
@@ -23,7 +23,7 @@ export class LoginComponent {
 
   public error$ = this.error.asObservable();
 
-  public constructor(@Inject(LoginService) private readonly loginService: Readonly<LoginService>) {}
+  public constructor(@Inject(AuthService) private readonly loginService: Readonly<AuthService>) {}
 
   public submit(): void {
     this.error.next(false);
