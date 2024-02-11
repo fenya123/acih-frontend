@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject } from "@angular/core";
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../auth.service";
 import { catchError } from "rxjs/operators";
 import { BehaviorSubject, of } from "rxjs";
@@ -12,10 +12,7 @@ import { BehaviorSubject, of } from "rxjs";
 })
 export class LoginComponent {
   public formGroup = new FormGroup({
-    email: new FormControl("", [
-      Validators.required,
-      this.forbiddenNameValidator(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/u),
-    ]),
+    email: new FormControl("", [Validators.required, Validators.pattern(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/u)]),
     pass: new FormControl("", [Validators.required]),
   });
 
@@ -36,13 +33,5 @@ export class LoginComponent {
         }),
       )
       .subscribe();
-  }
-
-  private forbiddenNameValidator(nameRe: Readonly<RegExp>): ValidatorFn {
-    // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
-    return (control: Readonly<AbstractControl<string>>): ValidationErrors | null => {
-      const forbidden = nameRe.test(control.value);
-      return forbidden ? null : { email: control.value };
-    };
   }
 }
