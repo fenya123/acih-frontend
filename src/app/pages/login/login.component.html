@@ -9,26 +9,30 @@
       [isError]="formGroup.controls.email.touched && !formGroup.controls.email.valid"
       acihInput
       formControlName="email"
-      placeholder="Your E-Mail" />
-    <span *ngIf="formGroup.controls.email.touched && !formGroup.controls.email.valid" class="login_form_input_invalid">
+      placeholder=" Your E-Mail" />
+    <span
+      *ngIf="formGroup.controls.email.touched && !formGroup.controls.email.valid"
+      class="login_form_input_invalid caption">
       E-mail is invalid
     </span>
     <input
       [isError]="!formGroup.controls.pass.valid && formGroup.controls.pass.touched"
       acihInput
       formControlName="pass"
-      placeholder="Your Password"
+      placeholder=" Your Password"
       type="password" />
+    <span
+      *ngIf="!formGroup.controls.pass.valid && formGroup.controls.pass.touched"
+      class="login_form_input_invalid caption">
+      Password is required
+    </span>
   </div>
-  <span *ngIf="!formGroup.controls.pass.valid && formGroup.controls.pass.touched" class="login_form_input_invalid">
-    Password is required
-  </span>
-  <button [disableButton]="!formGroup.valid" acihButton type="submit">Sign In!</button>
-  <div *ngIf="error$ | async" class="login_form_input_invalid">The user was not found</div>
-  <div class="login_form_submit_button">
-    <div>
+  <div class="login_form_underInput">
+    <button [disableButton]="!formGroup.valid" acihButton type="submit">Sign In!</button>
+    <div *ngIf="error$ | async" class="login_form_underInput_invalid">The user was not found</div>
+    <div class="login_form_underInput_text">
       Still don't have an account?
-      <span class="login_form_signUp">Sign up</span> now!!
+      <span> <span class="login_form_underInput_text_signUp">Sign up</span> now!</span>
     </div>
   </div>
 </form>

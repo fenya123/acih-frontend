@@ -32,29 +32,52 @@
 
 .login_form {
   display: flex;
-  gap: 20px;
+  gap: 72px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+
+
   &_input {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
     &_invalid {
       display: flex;
       justify-content: center;
+      margin-top: -15px ;
       color: var(--danger);
     }
   }
 
-  &_submit_button {
+  input[type="password"] ~ span:not(.login_form_input_invalid) {
+    margin-bottom:  0;
+  }
+
+
+  &_underInput {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
-  }
+    gap: 20px;
 
-  &_signUp {
-    color: var(--accent);
-    cursor: pointer;
-    text-decoration: underline var(--accent);
+    &_submit_button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    &_text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &_signUp {
+        color: var(--accent);
+        cursor: pointer;
+      }
+    }
   }
 }
