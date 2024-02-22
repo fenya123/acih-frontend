@@ -1,0 +1,27 @@
+name: Deploy to QA stand
+run-name: Deploy commit "${{ github.sha }}"
+
+on:
+  push:
+    tags:
+      - DEPLOYED/QA
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Run deploy script via ssh
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd ~/acih-frontend
+            docker compose -f envs/qa/deploy/docker-compose.yml down
+            git fetch origin +refs/tags/DEPLOYED/QA:refs/tags/DEPLOYED/QA
+            git checkout tags/DEPLOYED/QA
+            docker compose -f envs/qa/deploy/docker-compose.yml up --build --detach
